@@ -9,6 +9,7 @@ gem 'bootstrap', '~> 5.2.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'letter_opener', group: :development
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'pundit'
