@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
+# User
 class User < ApplicationRecord
-  attr_accessor :login
+  # attr_accessor :login
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable, :authentication_keys => [:login]
+         :recoverable, :rememberable, :validatable, authentication_keys: [:login]
 
   validate :password_lower_case
   validate :password_uppercase
@@ -14,7 +18,7 @@ class User < ApplicationRecord
   validates :username, :email, :password, presence: true, on: :create
 
   def login
-    @login || self.username || self.email
+    @login || username || email
   end
 
   # Checks if the password contains an upper_case character
@@ -45,7 +49,6 @@ class User < ApplicationRecord
 
     errors.add :password, ' must contain at least one number'
   end
-
 
   # Checks for username/email validation
   def self.find_for_database_authentication(warden_conditions)
