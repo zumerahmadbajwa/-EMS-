@@ -1,28 +1,21 @@
-<h2>Sign up</h2>
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">  
+	<h2 class='text-light'>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  
-  <div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="form-control">
-						
-					<%= render "users/shared/error_messages", resource: resource %>
-					<div class="form-group">
-						<div class="field">
-							<%= f.label :username %><br />
-							<%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-						</div>
-					</div>
-						
-					<div class="form-group">
-						<div class="field">
-							<%= f.label :email %><br />
-							<%= f.email_field :email, autofocus: true, autocomplete: "email"%>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="field">
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<%= render "users/shared/error_messages", resource: resource %>
+				<div class="form-outline mb-4 text-light">
+					<%= f.label :username %><br />
+					<%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+				</div>
+				
+				<div class="form-outline mb-4 text-light">
+					<%= f.label :email %><br />
+					<%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+				</div>
+			
+				<div class="row mb-4 text-light">
+      		<div class="col">
+        		<div class="form-outline" >
 							<%= f.label :password %>
 							<% if @minimum_password_length %>
 							<em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -30,29 +23,30 @@
 							<%= f.password_field :password, autocomplete: "new-password" %>
 						</div>
 					</div>
-					<div class="form-group">
-						<p class="small mb-5 pb-lg-2">Hint: The password should be at least eight characters long. To make it stronger, 
-						use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & ).</p>
-					</div>
-					<div class="form-group">
-						<div class="field">
+			
+					<div class="col">
+        		<div class="form-outline" >
 							<%= f.label :password_confirmation %><br />
 							<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<p class="small mb-5 pb-lg-2">Your personal data will be used to support your experience throughout this website, 
-						to manage access to your account, and for other purposes described in our http://brentmark-prod.square63.net//privacy-policy/.</p>
-					</div>
-
-					<div class="actions">
-						<%= f.submit "Sign up", class: "btn btn-primary" %>
-					</div>
 				</div>
-			</div>
-		</div>
-  </div>
-<% end %>
+				<div class="form-outline mb-4 text-light">
+					<p class="small mb-5 pb-lg-2">Hint: The password should be at least eight characters long. To make it stronger, 
+					use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & ).</p>
+				</div>
 
-<%= render "users/shared/links" %>
+				<div class="form-outline mb-4 text-light">
+					<p class="small mb-5 pb-lg-2">Your personal data will be used to support your experience throughout this website, 
+					to manage access to your account, and for other purposes described in our http://brentmark-prod.square63.net//privacy-policy/.</p>
+				</div>
+
+				<div class="actions mb-2 text-light">
+					<%= f.submit "Sign up", class: 'btn btn-primary btn-block mb-4 text-light'  %>
+				</div>
+	
+	<% end %>
+
+	<%= render "users/shared/links", class: 'btn btn-primary btn-block mb-4 text-light'  %>
+
+</div>
