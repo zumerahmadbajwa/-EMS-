@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module User
+  # User Sessions Controller
+  #
   class SessionsController < Devise::SessionsController
     before_action :configure_sign_in_params, only: [:create]
 

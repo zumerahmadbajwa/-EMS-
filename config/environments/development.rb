@@ -29,7 +29,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # The generator will install an initializer which describes ALL of Devise's configuration options. It is imperative that you take a look at it.
+  # The generator will install an initializer which describes ALL of Devise's configuration options.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Now any email will pop up in your browser instead of being sent.

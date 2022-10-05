@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# User
 class User < ApplicationRecord
-  attr_accessor :login
+  # attr_accessor :login
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
