@@ -1,0 +1,4 @@
+require: rubocop-rails
+require:
+  - rubocop-other-extension
+  - rubocop-rails
