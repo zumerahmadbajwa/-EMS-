@@ -9,6 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login]
 
+  enum role: %i[admin client]
+
   validate :password_lower_case
   validate :password_uppercase
   validate :password_special_char
