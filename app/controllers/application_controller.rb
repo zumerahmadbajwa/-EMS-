@@ -19,8 +19,4 @@ class ApplicationController < ActionController::Base
   def user_not_authorized(_exception)
     redirect_to root_path, alert: 'You are not authorized to perform this action.'
   end
-
-  # def after_sign_in_path_for(resource)
-  #   current_user.admin? admin_users_path
-  # end
 end

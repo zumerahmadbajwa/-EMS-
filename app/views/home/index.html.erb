@@ -5,7 +5,9 @@
       <%= current_user.email %>
       <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
       <%= link_to "Account Settings", edit_user_registration_path %>
-      <%= link_to "User's list", admin_users_path %>
+      <% if current_user.admin? %>
+        <%= link_to "User's list", admin_users_path %>
+      <% end %>
   <% else %>
       <%= link_to "Log_in", new_user_session_path %>
       <%= link_to "New to EMS", new_user_registration_path %>
