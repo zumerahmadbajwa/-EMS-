@@ -11,7 +11,7 @@
 @user = User.create(
   username: 'Admin',
   email: 'admin@example.com',
-  password: ' Password123!@#',
-  password_confirmation: ' Password123!@#',
+  password: 'Password123!@#',
+  password_confirmation: 'Password123!@#',
   role: 0
 )

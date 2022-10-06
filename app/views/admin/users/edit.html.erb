@@ -1,0 +1,17 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
+  <div class="text-start">
+    <%= link_to "Back", admin_users_path  %>
+  </div>
+
+  <h2 class = "text-light">User Edit</h2>
+  <%= form_for ([:admin, @user]) do |f| %>
+    <div class="field mb-3">
+      <%= f.label :username %>
+      <%= f.text_field :username, required: true %>
+    </div>
+    
+    <div class="actions mb-2 text-light">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
