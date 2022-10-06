@@ -3,6 +3,7 @@
 # Application Controller
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -18,4 +19,8 @@ class ApplicationController < ActionController::Base
   def user_not_authorized(_exception)
     redirect_to root_path, alert: 'You are not authorized to perform this action.'
   end
+
+  # def after_sign_in_path_for(resource)
+  #   current_user.admin? admin_users_path
+  # end
 end
