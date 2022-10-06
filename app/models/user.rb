@@ -62,4 +62,12 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  def self.search(search)
+    if search.present?
+      where(' lower(username) LIKE :value or lower(email) LIKE :value ', value: "%#{search.downcase}%")
+    else
+      self
+    end
+  end
 end

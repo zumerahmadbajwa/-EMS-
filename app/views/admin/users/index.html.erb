@@ -1,29 +1,37 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
   <h2 class= "text-light">User's List</h2>
   <div class= "text-light"><hr></div>
-  <table class="table table-sm">
-    <thead>
-      <th class="text-light">ID</th>
-      <th class="text-light">Username</th>
-      <th class="text-light">Email</th>
-      <th class="text-light">Role</th>
-      <th class="text-light">Action</th>
-    </thead>
-    <tbody class="text-light">
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.id %></td>
-          <td><%= user.username %></td>
-          <td><%= user.email %></td>
-          <td><%= user.role %></td>
-          <td>
-            <%= link_to "Show", admin_user_path(user) %>
-            <%= link_to "Edit", edit_admin_user_path(user) %>
-            <%= link_to 'Destroy', admin_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
-        </tr>
+   <div class="table-responsive">
+      <%= form_tag admin_users_path, method: :get do %>
+        <div class="input-group w-50 input-group-sm mb-4" >
+          <%= search_field_tag :search, params[:search], placeholder: "Type Name or ID ", class:"form-control" %>
+          <%= submit_tag "search", class: "btn btn-warning"%>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to "Back", root_path  %>
+      <table class="table table-sm">
+        <thead>
+          <th class="text-light">ID</th>
+          <th class="text-light">Username</th>
+          <th class="text-light">Email</th>
+          <th class="text-light">Role</th>
+          <th class="text-light">Action</th>
+        </thead>
+        <tbody class="text-light">
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.username %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+              <td>
+                <%= link_to "Show", admin_user_path(user) %>
+                <%= link_to "Edit", edit_admin_user_path(user) %>
+                <%= link_to 'Destroy', admin_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Back", root_path  %>
+    </div>
 </div>
