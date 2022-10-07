@@ -1,4 +1,41 @@
  /* background image for application.*/
 body {	
-	background-image: url(ems.webp);
+  background-image: url(ems.webp);
 }
+
+/* sorting arrows for table.*/
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.table th .asc { 
+  background-image: url(up.png); 
+}
+
+.table th .desc { 
+  background-image: url(down.png); 
+}
+
+/* coloring the link shown on table.*/
+.adminuserpath {
+  color: rgb(248, 203, 24);
+  &:hover {
+     color: rgb(255, 255, 255);
+   }
+ }
+
+.editadminuserpath {
+  color: rgb(248, 203, 24);
+  &:hover {
+     color: rgb(255, 255, 255);
+   }
+ }
+
+ .rootpath {
+  color: rgb(248, 203, 24);
+  &:hover {
+     color: rgb(255, 255, 255);
+   }
+ }
+ 

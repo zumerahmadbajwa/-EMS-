@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+require File.expand_path('boot', __dir__)
 
+require 'csv'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems

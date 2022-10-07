@@ -6,9 +6,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 5.2.1'
+gem 'bootstrap5-kaminari-views'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'kaminari'
 gem 'letter_opener', group: :development
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
