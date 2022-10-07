@@ -8,8 +8,8 @@
           <%= submit_tag "search", class: "btn btn-warning"%>
         </div>
       <% end %>
-      <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap",) %> 
-      <%= link_to(".csv Report", admin_users_path(format: :csv), class: "btn btn-warning text-wrap",) %></p>
+      <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap") %> 
+      <%= link_to(".csv Report", admin_users_path(format: :csv), class: "btn btn-warning text-wrap") %></p>
       <table class="table table-sm">
         <thead>
           <th class="col text-light"><%= sortable "id","ID" %></th>
