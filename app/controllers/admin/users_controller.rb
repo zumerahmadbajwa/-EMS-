@@ -4,9 +4,18 @@ module Admin
   # User Controller
   class UsersController < ApplicationController
     before_action :find_user, only: %i[show edit update destroy]
+    helper_method :sort_column, :sort_direction
 
     def index
-      @users = User.search(params[:search]).order(:created_at).page params[:page]
+      @users =
+        User.search(params[:search])
+            .order("#{sort_column} #{sort_direction}")
+            .page params[:page]
+      respond_to do |format|
+        format.html
+        format.csv { send_data @users.to_csv }
+        format.xls { send_data @users.to_csv(col_sep: "\t") }
+      end
     end
 
     def new
@@ -47,6 +56,14 @@ module Admin
 
     def user_params
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def sort_column
+      User.column_names.include?(params[:sort]) ? params[:sort] : 'id'
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
     end
   end
 end

@@ -3,18 +3,20 @@
   <div class= "text-light"><hr></div>
    <div class="table-responsive">
       <%= form_tag admin_users_path, method: :get do %>
-        <div class="input-group w-50 input-group-sm mb-4" >
-          <%= search_field_tag :search, params[:search], placeholder: "Type Name or ID ", class:"form-control" %>
+        <div class="float-end input-group w-50 input-group-sm mb-4" >
+          <%= search_field_tag :search, params[:search], placeholder: "Search Here ", class:"form-control" %>
           <%= submit_tag "search", class: "btn btn-warning"%>
         </div>
       <% end %>
+      <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap",) %> 
+      <%= link_to(".csv Report", admin_users_path(format: :csv), class: "btn btn-warning text-wrap",) %></p>
       <table class="table table-sm">
         <thead>
-          <th class="text-light">ID</th>
-          <th class="text-light">Username</th>
-          <th class="text-light">Email</th>
-          <th class="text-light">Role</th>
-          <th class="text-light">Action</th>
+          <th class="col text-light"><%= sortable "id","ID" %></th>
+          <th class="col text-light"><%= sortable "username","User Name"  %></th>
+          <th class="col text-light"><%= sortable "email","Email"%></th>
+          <th class="col text-light">Role</th>
+          <th class="col text-light">Action</th>
         </thead>
         <tbody class="text-light">
           <% @users.each do |user| %>
@@ -23,10 +25,10 @@
               <td><%= user.username %></td>
               <td><%= user.email %></td>
               <td><%= user.role %></td>
-              <td>
-                <%= link_to "Show", admin_user_path(user) %>
-                <%= link_to "Edit", edit_admin_user_path(user) %>
-                <%= link_to 'Destroy', admin_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <td class ="link-warning">
+                <%= link_to 'Show', admin_user_path(user), class: :adminuserpath %>
+                <%= link_to "Edit", edit_admin_user_path(user), class: :editadminuserpath %>
+                <%= link_to 'Destroy', admin_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: :adminuserpath %>
               </td>
             </tr>
           <% end %>
@@ -34,6 +36,6 @@
       </table>
       <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
       nav_class: "d-inline-block" %><br>
-      <%= link_to "Back", root_path  %> 
+      <%= link_to "Back", root_path , class: :rootpath %> 
     </div>
 </div>

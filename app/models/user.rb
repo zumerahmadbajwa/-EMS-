@@ -53,7 +53,7 @@ class User < ApplicationRecord
     errors.add :password, ' must contain at least one number'
   end
 
-  # Checks for username/email validation
+  # username/email validation
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
@@ -64,11 +64,22 @@ class User < ApplicationRecord
     end
   end
 
+  # search user
   def self.search(search)
     if search.present?
       where(' lower(username) LIKE :value or lower(email) LIKE :value ', value: "%#{search.downcase}%")
     else
       self
+    end
+  end
+
+  # download the xls or csv files
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
     end
   end
 end
