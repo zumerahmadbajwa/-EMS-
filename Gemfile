@@ -10,6 +10,7 @@ gem 'bootstrap5-kaminari-views'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'letter_opener', group: :development
 gem 'pg', '>= 0.18', '< 2.0'

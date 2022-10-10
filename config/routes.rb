@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   # get 'homepage', to: 'home#homepage'
   namespace :admin do
-    resources :users
+    resources :users do
+      get :delete_modal
+    end
   end
 end
