@@ -48,6 +48,10 @@ module Admin
       redirect_to admin_users_path
     end
 
+    def delete_modal
+      @user = User.find(params[:user_id])
+    end
+
     private
 
     def find_user
