@@ -5,13 +5,16 @@
 
   <h2 class = "text-light">User Edit</h2>
   <%= form_for ([:admin, @user]) do |f| %>
-    <div class="field mb-3">
-      <%= f.label :username %>
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :username %><br>
       <%= f.text_field :username, required: true %>
     </div>
-    
-    <div class="actions mb-2 text-light">
-      <%= f.submit %>
+
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, required: true %>
     </div>
+    
+    <%= f.submit "Update", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
   <% end %>
 </div>
