@@ -1,0 +1,18 @@
+<div class="container-fluid w-50 shadow mt-5 text-light rounded border p-4 bg-dark">
+  <h2>Create User</h2>
+  <%= form_for(@user, url: invitations_path(@user), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: @user %>
+    
+    <div class="field mb-3 text-start">
+      <%= f.label :username, class:"form-label" %><br />
+      <%= f.text_field :username, autofocus: true, required: true%>
+    </div>
+
+    <div class="field mb-3 text-start">
+      <%= f.label :email, class:"form-label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+    </div>
+
+    <%= f.submit "Create", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
+  <% end %>
+</div>
