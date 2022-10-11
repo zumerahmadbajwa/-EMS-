@@ -7,6 +7,7 @@
       <%= link_to "Account Settings", edit_user_registration_path %>
       <% if current_user.admin? %>
         <%= link_to "User's list", admin_users_path %>
+        <%= link_to "Products list", admin_products_path %>
       <% end %>
     <% else %>
       <%= link_to "Log_in", new_user_session_path %>

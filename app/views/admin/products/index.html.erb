@@ -1,0 +1,41 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Products List</h2>
+  <div class= "text-light"><hr></div>
+   <div class="table-responsive">
+      <%= form_tag admin_products_path, method: :get do %>
+        <div class="float-end input-group w-50 input-group-sm mb-4" >
+          <%= search_field_tag :search, params[:search], placeholder: "Search Here ", class:"form-control" %>
+          <%= submit_tag "search", class: "btn btn-warning"%>
+        </div>
+      <% end %>
+      <%= link_to(".xls Report", admin_products_path(format: :xls), class: "btn btn-warning text-wrap") %> 
+      <%= link_to('Create Product', new_admin_product_path, class: "btn btn-warning text-wrap")%>
+      <table class="table table-sm">
+        <thead>
+          <th class="col text-light"><%= sortable "id","ID" %></th>
+          <th class="col text-light"><%= sortable "title","Title" %></th>
+          <th class="col text-light"><%= sortable "price","Price" %></th>
+          <th class="col text-light"><%= sortable "status","Status" %></th>
+          <th class="col text-light">Action</th>
+        </thead>
+        <tbody class="text-light">
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= product.title %></td>
+              <td><%= product.price %></td>
+              <td><%= product.status %></td>
+              <td class ="link-warning">
+                <%= link_to 'Show', admin_product_path(product), class: :adminuserpath %>
+                <%= link_to "Edit", edit_admin_product_path(product), class: :editadminuserpath %>
+                <%= link_to 'Delete', admin_product_path(product), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @products, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+      nav_class: "d-inline-block" %><br>
+      <%= link_to "Back", root_path , class: :rootpath %> 
+    </div>
+</div>
