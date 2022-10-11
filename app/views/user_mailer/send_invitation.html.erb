@@ -1,0 +1,15 @@
+Welcome to My site, <%= @user.username %>
+<hr>
+===============================================
+<hr>
+You have successfully signed up to EMS_project.com,<br>
+Your username is: <%= @user.username %>.<br>
+Your Email is: <%= @user.email %>.<br><br>
+
+Temporary password:
+<%= @password %>
+<hr>
+To login to the site, just follow this link: 
+<%= link_to "Log in", new_user_session_url %>.
+
+Thanks for joining and have a great day!

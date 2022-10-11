@@ -34,6 +34,9 @@
           <% end %>
         </tbody>
       </table>
+      <div class="float-end btn btn-warning text-wrap">
+          <%= link_to 'Create', new_invitation_path%>
+      </div>
       <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
       nav_class: "d-inline-block" %><br>
       <%= link_to "Back", root_path , class: :rootpath %> 

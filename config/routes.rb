@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get :delete_modal
     end
   end
+  resources :invitations
 end

@@ -1,15 +1,16 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">  
   <h1 class="text-center text-light"><b>Welcome</b></h1>
-
-  <% if user_signed_in? %>
+  <div class="text-light">
+    <% if user_signed_in? %>
       <%= current_user.email %>
       <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
       <%= link_to "Account Settings", edit_user_registration_path %>
       <% if current_user.admin? %>
         <%= link_to "User's list", admin_users_path %>
       <% end %>
-  <% else %>
+    <% else %>
       <%= link_to "Log_in", new_user_session_path %>
       <%= link_to "New to EMS", new_user_registration_path %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
