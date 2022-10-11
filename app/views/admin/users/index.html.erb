@@ -9,7 +9,7 @@
         </div>
       <% end %>
       <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap") %> 
-      <%= link_to(".csv Report", admin_users_path(format: :csv), class: "btn btn-warning text-wrap") %></p>
+      <%= link_to('Create User', new_invitation_path, class: "btn btn-warning text-wrap")%>
       <table class="table table-sm">
         <thead>
           <th class="col text-light"><%= sortable "id","ID" %></th>
@@ -34,9 +34,6 @@
           <% end %>
         </tbody>
       </table>
-      <div class="float-end btn btn-warning text-wrap">
-          <%= link_to 'Create', new_invitation_path%>
-      </div>
       <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
       nav_class: "d-inline-block" %><br>
       <%= link_to "Back", root_path , class: :rootpath %> 

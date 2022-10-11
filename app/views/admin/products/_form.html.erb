@@ -1,0 +1,28 @@
+<!-- form html -->
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Create Product</h2>
+  <%= form_for [:admin, @product] do |f| %>
+
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :Title, class: "form-label" %>
+      <%= f.text_field :title, required: true, autofocus: true, autocomplete: "title", class: "form-control" %>
+    </div>
+
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :Price, class: "form-label" %><br />
+      <%= f.text_field :price, required: true, autofocus: true, autocomplete: "price", class: "form-control" %>
+    </div> 
+
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :Description, class: "form-label" %>
+      <%= f.text_area :description, required: true, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-outline mb-4 text-start text-light">
+      <%= f.label :Select_Status, class: "form-label" %><br />
+      <%= f.text_area :status, required: true, autofocus: true, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Create Product", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
+  <% end %>
+</div>

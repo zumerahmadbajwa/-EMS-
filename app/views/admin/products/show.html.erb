@@ -1,0 +1,10 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
+  <%= link_to "Back", admin_products_path  %>
+  <div class="text-light text-center">
+    <h3>Product:<%= @product.id %></h3>
+    <p> Title: <%= @product.title %></p>
+    <p> Price: <%= @product.price %></p>
+    <p> Description: <%= @product.description %></p>
+    <p> Status: <%= @product.status %></p>
+  </div>
+</div>
