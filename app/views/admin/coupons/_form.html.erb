@@ -13,7 +13,7 @@
 
     <div class="dropdown field mb-3 text-start">
       <%= f.label :select_product, class: "form-label" %><br />
-      <%= f.select :products, options_for_select(Product.all.map {|key| [key.title, key.id]}), {},multiple: true, class: "mx-2 form-select" %>
+      <%= f.select :products, options_for_select(Product.all.map {|key| [key.title, key.id]}), {}, class: "form-control form-select" %>
     </div>
 
     <%= f.submit "Create Coupon", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
