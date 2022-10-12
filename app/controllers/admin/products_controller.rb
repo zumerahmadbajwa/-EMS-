@@ -9,8 +9,8 @@ module Admin
     def index
       @products =
         Product.search(params[:search])
-            .order("#{sort_column} #{sort_direction}")
-            .page params[:page]
+               .order("#{sort_column} #{sort_direction}")
+               .page params[:page]
       respond_to do |format|
         format.html
         format.xls { send_data @products.to_csv(col_sep: "\t") }
