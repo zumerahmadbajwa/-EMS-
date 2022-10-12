@@ -3,6 +3,7 @@
 # Product
 class Product < ApplicationRecord
   paginates_per 5
+  belongs_to :category
   enum role: %i[published draft pending]
   validates :title, :price, :description, presence: true
 

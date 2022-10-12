@@ -1,0 +1,28 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Categories List</h2>
+  <div class= "text-light"><hr></div>
+   <div class="table-responsive">
+      <%= link_to('Create Category', new_admin_category_path, class: "btn btn-warning text-wrap")%>
+      <table class="table table-sm">
+        <thead>
+          <th class="col text-light">ID</th>
+          <th class="col text-light">Name</th>
+          <th class="col text-light">Action</th>
+        </thead>
+        <tbody class="text-light">
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.id %></td>
+              <td><%= category.name %></td>
+              <td class ="link-warning">
+                <%= link_to 'Show', admin_category_path(category), class: :adminuserpath %>
+                <%= link_to "Edit", edit_admin_category_path(category), class: :editadminuserpath %>
+                <%= link_to 'Delete', admin_category_path(category), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Back", root_path , class: :rootpath %> 
+    </div>
+</div>

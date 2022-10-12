@@ -23,6 +23,11 @@
       <%= f.text_area :status, required: true, autofocus: true, class: "form-control" %>
     </div>
 
+    <div class="dropdown field mb-3 text-start text-light">
+      <%= f.label :select_category, class: "form-label" %><br />
+      <%= f.select :category_id, options_for_select(Category.all.map {|key| [key.name, key.id]}), {}, class: "form-control form-select" %>
+    </div>
+
     <%= f.submit "Create Product", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
   <% end %>
 </div>
