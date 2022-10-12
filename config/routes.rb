@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :delete_modal
     end
     resources :products
+    resources :categories
   end
   resources :invitations
 end

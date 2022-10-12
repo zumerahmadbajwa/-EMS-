@@ -1,0 +1,13 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
+  <%= link_to "Back", admin_categories_path %>
+  <div class="text-light text-center">
+    <h3>Category:<%= @category.id %></h3>
+    <p> Category_Name: <%= @category.name %></p>
+    <p> Products:
+      <% @category.products.each do |product| %>
+        <%= product.title %>
+        <%= product.price %> <br>
+      <% end %>
+    </p>
+  </div>
+</div>

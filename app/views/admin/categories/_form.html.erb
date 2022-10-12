@@ -1,0 +1,13 @@
+<!-- form html -->
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Create Category</h2>
+  <%= form_for [:admin, @category] do |f| %>
+
+    <div class="form-outline mb-4 text-light">
+      <%= f.label :Name, class: "form-label" %>
+      <%= f.text_field :name, required: true, autofocus: true, autocomplete: "title", class: "form-control" %>
+    </div>
+
+    <%= f.submit "Create Category", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
+  <% end %>
+</div>
