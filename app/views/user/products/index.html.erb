@@ -1,0 +1,15 @@
+<div class="container-fluid w-75 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Products listing</h2>
+  <div class="d-flex flex-wrap justify-content-around">
+    <% @products.each do |product| %>
+      <div class="card my-3 w-25">
+        <%= image_tag product.image if product.image.attached? %>
+        <div class="card-body">
+          <h5 class="card-title"><%= product.title %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-text">Rs: <%= product.price %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

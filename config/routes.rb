@@ -12,5 +12,10 @@ Rails.application.routes.draw do
     resources :categories
     resources :coupons
   end
+
+  namespace :user do
+    resources :products, only: [:index]
+  end
+
   resources :invitations
 end
