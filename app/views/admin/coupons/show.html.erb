@@ -1,0 +1,14 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
+  <%= link_to "Back", admin_coupons_path  %>
+  <div class="text-light text-center">
+    <h3>Product:<%= @coupon.id %></h3>
+    <p> Title: <%= @coupon.name %></p>
+    <p> Price: <%= @coupon.price %></p>
+    <p> Products:
+      <% @coupon.products.each do |product| %>
+        <%= product.title %><br>
+      <% end %>
+    </p>
+    </p>
+  </div>
+</div>

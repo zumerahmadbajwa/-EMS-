@@ -1,0 +1,39 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <h2 class= "text-light">Coupons List</h2>
+  <div class= "text-light"><hr></div>
+   <div class="table-responsive">
+      <%= form_tag admin_coupons_path, method: :get do %>
+        <div class="float-end input-group w-50 input-group-sm mb-4" >
+          <%= search_field_tag :search, params[:search], placeholder: "Search Here ", class:"form-control" %>
+          <%= submit_tag "search", class: "btn btn-warning"%>
+        </div>
+      <% end %>
+      <%= link_to(".xls Report", admin_coupons_path(format: :xls), class: "btn btn-warning text-wrap") %> 
+      <%= link_to('Create Coupon', new_admin_coupon_path, class: "btn btn-warning text-wrap")%>
+      <table class="table table-sm">
+        <thead>
+          <th class="col text-light"><%= sortable "id","ID" %></th>
+          <th class="col text-light"><%= sortable "name","Name" %></th>
+          <th class="col text-light"><%= sortable "price","Price" %></th>
+          <th class="col text-light">Action</th>
+        </thead>
+        <tbody class="text-light">
+          <% @coupons.each do |coupon| %>
+            <tr>
+              <td><%= coupon.id %></td>
+              <td><%= coupon.name %></td>
+              <td><%= coupon.price %></td>
+              <td class ="link-warning">
+                <%= link_to 'Show', admin_coupon_path(coupon), class: :adminuserpath %>
+                <%= link_to "Edit", edit_admin_coupon_path(coupon), class: :editadminuserpath %>
+                <%= link_to 'Delete', admin_coupon_path(coupon), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @coupons, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+      nav_class: "d-inline-block" %><br>
+      <%= link_to "Back", root_path , class: :rootpath %> 
+    </div>
+</div>
