@@ -4,6 +4,8 @@
 class User < ApplicationRecord
   paginates_per 5
   # attr_accessor :login
+  has_one :cart
+  has_many :orders
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,6 +21,11 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :username, :email, :password, presence: true, on: :create
+
+  # Returns existing cart if exists otherwise creats new
+  def ensure_cart
+    cart.presence || create_cart
+  end
 
   def login
     @login || username || email

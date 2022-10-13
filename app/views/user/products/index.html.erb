@@ -1,4 +1,5 @@
 <div class="container-fluid w-75 shadow mt-5 rounded border p-4 bg-dark" >
+<%= link_to "Back", root_path  %>
   <h2 class= "text-light">Products listing</h2>
   <div class="d-flex flex-wrap justify-content-around">
     <% @products.each do |product| %>
@@ -8,6 +9,7 @@
           <h5 class="card-title"><%= product.title %></h5>
           <p class="card-text"><%= product.description %></p>
           <p class="card-text">Rs: <%= product.price %></p>
+          <%= button_to "Add to cart", user_order_items_path(product_id: product.id), class:"btn btn-warning w-100" %>
         </div>
       </div>
     <% end %>

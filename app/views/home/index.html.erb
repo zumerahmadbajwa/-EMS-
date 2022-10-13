@@ -5,12 +5,13 @@
       <%= current_user.email %>
       <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
       <%= link_to "Account Settings", edit_user_registration_path %>
-      <%= link_to "Products List", user_products_path %>
       <% if current_user.admin? %>
         <%= link_to "User's list", admin_users_path %>
         <%= link_to "Products list", admin_products_path %>
         <%= link_to "Category list", admin_categories_path %>
         <%= link_to "Coupon list", admin_coupons_path %>
+      <% else %>
+        <%= link_to "Products List", user_products_path %>
       <% end %>
     <% else %>
       <%= link_to "Log_in", new_user_session_path %>
