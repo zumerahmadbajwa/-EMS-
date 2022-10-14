@@ -9,7 +9,7 @@
           <h5 class="card-title"><%= product.title %></h5>
           <p class="card-text"><%= product.description %></p>
           <p class="card-text">Rs: <%= product.price %></p>
-          <%= button_to "Add to cart", user_order_items_path(product_id: product.id), class:"btn btn-warning w-100" %>
+          <%= button_to "Add to cart", user_order_items_path(product_id: product.id), class:"btn btn-warning" %>
         </div>
       </div>
     <% end %>
