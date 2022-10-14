@@ -1,4 +1,3 @@
 # frozen_string_literal: true
 
-class Home < ApplicationRecord
-end
+class Home < ApplicationRecord; end

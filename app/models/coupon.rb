@@ -3,12 +3,14 @@
 # discount model file
 class Coupon < ApplicationRecord
   paginates_per 5
-  has_many :products
+
   validates :name, :price, presence: true
+
+  has_many :products
 
   def self.search(search)
     if search.present?
-      where(' lower(coupons.name) LIKE :value ', value: "%#{search.downcase}%")
+      where('lower(coupons.name) LIKE :value', value: "%#{search.downcase}%")
     else
       self
     end

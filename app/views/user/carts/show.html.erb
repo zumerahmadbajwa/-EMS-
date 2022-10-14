@@ -1,0 +1,33 @@
+<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
+  <h2 class = "text-light">Add To Your Cart</h2>
+  <%= link_to "Back", user_products_path %>
+  <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-warning">
+    <ul>
+      <% current_cart.order_items.each do |order_item| %>
+        <h4>
+          <li>
+            Item: <%= order_item.product.title %>
+          </li>
+        </h4>
+        <div>
+          Price: <%= number_to_currency(order_item.product.price) %>
+        </div>
+        <div>
+          Quantity: <%= order_item.quantity %>
+        </div>
+        <div>
+          Total Price: <%= number_to_currency(order_item.total_price) %>
+        </div>
+        <div>
+          <%= link_to "Remove item", user_order_item_path(order_item), method: :delete, data: {confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
+    </ul>
+    <h3>Sub total: <%= number_to_currency(current_cart.sub_total) %></h3>
+    <% if current_cart.sub_total.zero? %>
+      <p>Your cart is Empty</p>
+    <% end %>
+  </div>
+
+  <%= link_to "Empty cart", user_cart_path,method: :delete, data: {confirm: "Are you sure?"}%>
+</div>
