@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# discount model file
+# coupon file
 class Coupon < ApplicationRecord
   paginates_per 5
 
@@ -26,11 +26,16 @@ class Coupon < ApplicationRecord
     end
   end
 
-  def self.validate_coupon(coupon, cart)
-    value = Coupon.find_by(name: coupon).present? ? Coupon.find_by(name: coupon).price : 0
+  def coupon_for_products(products)
+    products = products.compact.reject!(&:empty?)
+    Product.where(id: products).update_all(coupon_id: id)
+  end
+
+  def self.validate_discount(discount, cart)
+    value = Coupon.find_by(name: discount).present? ? Coupon.find_by(name: discount).price : 0
 
     if value.positive?
-      count = cart.products.where('coupon_id = ?', Coupon.find_by(name: coupon).id).count
+      count = cart.products.where('coupon_id = ?', Coupon.find_by(name: discount).id).count
       value *= count
     end
     value

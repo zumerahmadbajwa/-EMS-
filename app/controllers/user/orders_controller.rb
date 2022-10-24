@@ -4,7 +4,7 @@ class User
   # Orders Controller
   class OrdersController < ApplicationController
     before_action :find_order, only: %i[show]
-
+    skip_before_action :verify_authenticity_token
     def index
       @orders = Order.order(:created_at)
     end

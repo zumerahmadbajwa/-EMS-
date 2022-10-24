@@ -23,9 +23,11 @@ module Admin
 
     def create
       @coupon = Coupon.new(coupon_params)
-      if @coupon.save
-        redirect_to admin_coupons_path
-      else
+      ActiveRecord::Base.transaction do
+        @coupon.save!
+        @coupon.coupon_for_products(params[:coupon][:products])
+        redirect_to admin_coupons_path, notice: 'Disocunt is saved. '
+      rescue StandardError
         render 'new'
       end
     end
