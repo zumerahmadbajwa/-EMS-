@@ -8,6 +8,6 @@ class Cart < ApplicationRecord
   belongs_to :user
 
   def sub_total
-    order_items.sum(:total_price)
+    order_items.sum(&:total_price)
   end
 end

@@ -1,6 +1,6 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
   <%= link_to "Back", admin_orders_path  %>
-  <h2>Order Details</h2>
+  <h2 class="text-light">Order Details</h2>
   <div class="text-center">
     <% @order.order_items.each do |order_item| %>
     <h5>Order ID = <%= order_item.order_id %></h5>
