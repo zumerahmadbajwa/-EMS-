@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     resources :order_items, only: %i[new create show destroy]
     resources :orders
   end
-
+  post 'payments/create', to: 'payments#create'
   resources :invitations
 end

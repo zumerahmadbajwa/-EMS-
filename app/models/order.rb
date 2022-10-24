@@ -4,6 +4,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
+  enum payment: %i[cash card]
   enum status: %i[complete pending]
   validates :name, :email, :address, presence: true
 end

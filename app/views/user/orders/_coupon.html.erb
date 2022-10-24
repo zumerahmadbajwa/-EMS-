@@ -5,11 +5,9 @@
     <%= f.label :coupon, class: "form-label" %>
     <%= f.text_field :coupon, autofocus: true, autocomplete: "title", class: "form-control" %>
   </div>
-  <div class="actions mb-2">
-    <%= f.submit "Apply", class: 'btn btn-warning' %>
-  </div>
-  <h3>Total: <%= current_cart.sub_total %></h3>
+    <%= f.submit "Apply", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
+  <h4 class ="text-light">Total Price: <%= current_cart.sub_total %></h4>
 
-  <h3>After Discount: <%= coupon %></h3>
+  <h4 class ="text-light">After Discount: <%= coupon %></h4>
 <% end %>
 </div>
