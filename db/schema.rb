@@ -13,7 +13,7 @@
 # It's strongly recommended that you check this file into your version control system.
 # rubocop:disable all
 
-ActiveRecord::Schema.define(version: 20_221_024_053_624) do
+ActiveRecord::Schema.define(version: 20_221_013_105_824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
