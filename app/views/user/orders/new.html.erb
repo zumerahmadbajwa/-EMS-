@@ -1,17 +1,18 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
-  <h4> Customer Information</h4>
+  <h4 class="text-light"> Customer Information</h4>
   <%= form_for [:user,@order] do |f| %>
-    <div>
+    <div class="text-light">
       <%= f.label :name %><br>
       <%= f.text_field :name, required: true, autofocus: true %>
     </div>
-    <div>
+    <div class="text-light">
       <%= f.label :email %><br>
       <%= f.email_field :email, required: true %>
     </div>
-    <div>
+    <div class="text-light">
       <%= f.label :address %><br>
       <%= f.text_area :address, required: true %>
     </div>
+    <%= f.submit "Next", class: 'actions mb-2 text-dark btn btn-warning mt-3' %>
   <% end %>
 </div>
