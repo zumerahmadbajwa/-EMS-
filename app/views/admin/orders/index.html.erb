@@ -1,22 +1,25 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
+  <%= link_to "Back", root_path  %>
   <h2 class= "text-light">Orders</h2>
   <div class="table-responsive">
     <table class="table table-sm">
       <thead>
         <th class="col text-light">ID</th>
+        <th class="col text-light">User_ID</th>
         <th class="col text-light">Name</th>
         <th class="col text-light">Email</th>
         <th class="col text-light">Payment Method</th>
-        <th> Action </th>
+        <th class="col text-light"> Action </th>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.id %></td>
-            <td><%= order.name %></td>
-            <td><%= order.email %></td>
-            <td><%= order.payment %></td>
-            <td><%= link_to 'Show Order', admin_order_path(order) %></td>
+            <td class="text-light"><%= order.id %></td>
+            <td class="text-light"><%= order.user.id %></td>
+            <td class="text-light"><%= order.name %></td>
+            <td class="text-light"><%= order.email %></td>
+            <td class="text-light"><%= order.payment %></td>
+            <td class="text-light"><%= link_to 'Show Order', admin_order_path(order) %></td>
           </tr>
         <% end %>
       </tbody>
