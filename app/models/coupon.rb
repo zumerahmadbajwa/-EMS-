@@ -31,11 +31,12 @@ class Coupon < ApplicationRecord
     Product.where(id: products).update_all(coupon_id: id)
   end
 
-  def self.validate_discount(discount, cart)
-    value = Coupon.find_by(name: discount).present? ? Coupon.find_by(name: discount).price : 0
+  def self.validate_coupon(coupon, cart)
+    byebug
+    value = Coupon.find_by(name: coupon).present? ? Coupon.find_by(name: coupon).price : 0
 
     if value.positive?
-      count = cart.products.where('coupon_id = ?', Coupon.find_by(name: discount).id).count
+      count = cart.products.where('coupon_id = ?', Coupon.find_by(name: coupon).id).count
       value *= count
     end
     value

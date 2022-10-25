@@ -1,6 +1,7 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
   <h3 class ="text-light">Use Coupon</h3>
   <%= form_with url: new_user_order_path, method: 'get', remote: true do |f| %>
+  <% byebug %>
   <div class="field mb-3 text-start text-light">
     <%= f.label :coupon, class: "form-label" %>
     <%= f.text_field :coupon, autofocus: true, autocomplete: "title", class: "form-control" %>
