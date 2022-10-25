@@ -5,6 +5,7 @@
     <table class="table table-sm">
       <thead>
         <th class="col text-light">ID</th>
+        <th class="col text-light">User_ID</th>
         <th class="col text-light">Name</th>
         <th class="col text-light">Email</th>
         <th class="col text-light">Payment Method</th>
@@ -14,6 +15,7 @@
         <% @orders.each do |order| %>
           <tr>
             <td class="text-light"><%= order.id %></td>
+            <td class="text-light"><%= order.user.id %></td>
             <td class="text-light"><%= order.name %></td>
             <td class="text-light"><%= order.email %></td>
             <td class="text-light"><%= order.payment %></td>

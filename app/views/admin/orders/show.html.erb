@@ -1,13 +1,24 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
   <%= link_to "Back", admin_orders_path  %>
   <h2 class= "text-light">Details of order</h2>
-  <div class="text-light text-center">
-    <% @order.order_items.each do |order_item| %>
-    <h3>Order ID = <%= order_item.order_id %></h3>
-      <p>Product ID = <%= order_item.product_id %></p>
-      Product name = <%= order_item.product.title %></p>
-      Product Description = <%= order_item.product.description %> </p>
-      Unit Price = <%= order_item.product.price %></p>
-    <% end %>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <th class="col text-light">Product ID</th>
+        <th class="col text-light">Product Name</th>
+        <th class="col text-light">Product Description</th>
+        <th class="col text-light">Product price</th>
+      </thead>
+      <tbody>
+        <% @order.order_items.each do |order_item| %>
+          <tr>
+            <td class="text-light"><%= order_item.product.id %></td>
+            <td class="text-light"><%= order_item.product.title %></td>
+            <td class="text-light"><%= order_item.product.description %></td>
+            <td class="text-light"><%= order_item.product.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

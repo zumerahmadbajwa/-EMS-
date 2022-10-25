@@ -32,7 +32,6 @@ class Coupon < ApplicationRecord
   end
 
   def self.validate_coupon(coupon, cart)
-    byebug
     value = Coupon.find_by(name: coupon).present? ? Coupon.find_by(name: coupon).price : 0
 
     if value.positive?

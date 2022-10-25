@@ -26,7 +26,7 @@ module Admin
       ActiveRecord::Base.transaction do
         @coupon.save!
         @coupon.coupon_for_products(params[:coupon][:products])
-        redirect_to admin_coupons_path, notice: 'Disocunt is saved. '
+        redirect_to admin_coupons_path, notice: 'Disocunt is saved.'
       rescue StandardError
         render 'new'
       end
