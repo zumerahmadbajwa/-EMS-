@@ -12,6 +12,8 @@ class User
     def show; end
 
     def new
+      value = Coupon.validate_coupon(params[:coupon], current_cart) if params[:coupon].present?
+      @coupon = current_cart.sub_total.to_i - value.to_i
       @order = Order.new
     end
 

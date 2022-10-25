@@ -56,7 +56,7 @@ module Admin
     end
 
     def coupon_params
-      params.require(:coupon).permit(:name, :price, :product_id)
+      params.require(:coupon).permit(:name, :price)
     end
 
     def sort_column
