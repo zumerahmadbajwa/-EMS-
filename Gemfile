@@ -12,6 +12,7 @@ gem 'devise'
 gem 'interactor-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'jwt'
 gem 'kaminari'
 gem 'letter_opener', group: :development
 gem 'pg', '>= 0.18', '< 2.0'
