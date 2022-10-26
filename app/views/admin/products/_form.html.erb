@@ -14,7 +14,7 @@
 
     <div class="form-outline mb-4 text-light">
       <%= f.label :Price, class: "form-label" %><br />
-      <%= f.text_field :price, required: true, autofocus: true, autocomplete: "price", class: "form-control" %>
+      <%= f.number_field :price, type: "number", required: true, autofocus: true, autocomplete: "price", class: "form-control", min: 1, placeholder: "Only Integer value" %>
     </div> 
 
     <div class="form-outline mb-4 text-light">
@@ -22,9 +22,9 @@
       <%= f.text_area :description, required: true, autofocus: true, class: "form-control" %>
     </div>
 
-    <div class="form-outline mb-4 text-start text-light">
+    <div class="dropdown field mb-3 text-start text-light">
       <%= f.label :Select_Status, class: "form-label" %><br />
-      <%= f.text_area :status, required: true, autofocus: true, class: "form-control" %>
+      <%= f.select :status, options_for_select(Product.statuses.keys.to_a.map {|key| [key.titleize, key]}), {}, class: "form-select" %>
     </div>
 
     <div class="dropdown field mb-3 text-start text-light">

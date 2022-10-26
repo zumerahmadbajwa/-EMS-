@@ -27,7 +27,7 @@
               <td><%= product.status %></td>
               <td class ="link-warning">
                 <%= link_to 'Show', admin_product_path(product), class: :adminuserpath %>
-                <%= link_to "Edit", edit_admin_product_path(product), class: :editadminuserpath %>
+                <%= link_to "Edit", edit_admin_product_path(product), class: :adminuserpath %>
                 <%= link_to 'Delete', admin_product_path(product), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
               </td>
             </tr>
@@ -36,6 +36,6 @@
       </table>
       <%= paginate @products, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
       nav_class: "d-inline-block" %><br>
-      <%= link_to "Back", root_path , class: :rootpath %> 
+      <%= link_to "Back", root_path , class: :adminuserpath %> 
     </div>
 </div>

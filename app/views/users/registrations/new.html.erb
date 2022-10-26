@@ -3,6 +3,10 @@
 
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 		<%= render "users/shared/error_messages", resource: resource %>
+				<div class="field mb-3 text-start mt-3 float-end">
+					<%= f.file_field :image, class: "form-control" %>
+				</div>
+
 				<div class="form-outline mb-4 text-light">
 					<%= f.label :username %><br />
 					<%= f.text_field :username, autofocus: true, autocomplete: "username" %>
@@ -33,7 +37,7 @@
 				</div>
 				<div class="form-outline mb-4 text-light">
 					<p class="small mb-5 pb-lg-2">Hint: The password should be at least eight characters long. To make it stronger, 
-					use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & ).</p>
+					use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & ().</p>
 				</div>
 
 				<div class="form-outline mb-4 text-light">
@@ -42,7 +46,7 @@
 				</div>
 
 				<div class="actions mb-2 text-light">
-					<%= f.submit "Sign up", class: 'btn btn-primary btn-block mb-4 text-light'  %>
+					<%= f.submit "Sign up", class: 'btn btn-warning btn-block mb-4'  %>
 				</div>
 	
 	<% end %>

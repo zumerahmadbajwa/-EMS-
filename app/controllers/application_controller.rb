@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_cart
+    return if current_user.blank?
     @current_cart ||= current_user.ensure_cart
   end
   helper_method :current_cart

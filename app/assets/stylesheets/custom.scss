@@ -19,23 +19,13 @@ body {
 
 /* coloring the link shown on table.*/
 .adminuserpath {
-  color: rgb(248, 203, 24);
+  color: rgb(255, 255, 255);
   &:hover {
-     color: rgb(255, 255, 255);
+     color: rgb(248, 203, 24);
    }
  }
 
-.editadminuserpath {
-  color: rgb(248, 203, 24);
-  &:hover {
-     color: rgb(255, 255, 255);
-   }
+.fontstyle {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
  }
-
- .rootpath {
-  color: rgb(248, 203, 24);
-  &:hover {
-     color: rgb(255, 255, 255);
-   }
- }
- 

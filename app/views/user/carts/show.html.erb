@@ -1,6 +1,6 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
   <h2 class = "text-light">Order Summary</h2>
-  <%= link_to "Back", user_products_path %>
+  <%= link_to "Back", user_products_path, class: :adminuserpath %>
   <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-warning">
     <ul>
       <% current_cart.order_items.each do |order_item| %>
@@ -19,7 +19,7 @@
           Total Price: <%= number_to_currency(order_item.total_price) %>
         </div>
         <div>
-          <%= link_to "Remove item", user_order_item_path(order_item), method: :delete, data: {confirm: "Are you sure?"} %>
+          <%= link_to "Remove item", user_order_item_path(order_item), method: :delete,  data: {confirm: "Are you sure?"} %>
         </div>
       <% end %>
     </ul>

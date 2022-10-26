@@ -1,22 +1,13 @@
-<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">  
-  <h1 class="text-center text-light"><b>Welcome</b></h1>
-  <div class="text-light">
+<div class="container-fluid w-75 shadow mt-5 rounded border p-4 bg-dark">  
+  <h2 class="text-center text-light"><b>Welcome To The EMS-Project</b></h2>
+  <div class="text-light text-center">
     <% if user_signed_in? %>
       <%= current_user.email %>
-      <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
-      <%= link_to "Account Settings", edit_user_registration_path %>
       <% if current_user.admin? %>
-        <%= link_to "User's list", admin_users_path %>
-        <%= link_to "Products list", admin_products_path %>
-        <%= link_to "Category list", admin_categories_path %>
-        <%= link_to "Coupon list", admin_coupons_path %>
-        <%= link_to "Order list", admin_orders_path %>
+        <h4>You're in Admin Panel</h4>
       <% else %>
-        <%= link_to "Products List", user_products_path %>
+        <h4>You're in User Panel</h4>
       <% end %>
-    <% else %>
-      <%= link_to "Log_in", new_user_session_path %>
-      <%= link_to "New to EMS", new_user_registration_path %>
     <% end %>
   </div>
 </div>
