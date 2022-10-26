@@ -24,4 +24,12 @@ Rails.application.routes.draw do
   end
   post 'payments/create', to: 'payments#create'
   resources :invitations
+
+  namespace :api do
+    post :auth, to: 'authentication#create'
+    namespace :admin do
+      resources :users
+      resources :products
+    end
+  end
 end
