@@ -16,13 +16,13 @@
               <td><%= category.name %></td>
               <td class ="link-warning">
                 <%= link_to 'Show', admin_category_path(category), class: :adminuserpath %>
-                <%= link_to "Edit", edit_admin_category_path(category), class: :editadminuserpath %>
+                <%= link_to "Edit", edit_admin_category_path(category), class: :adminuserpath %>
                 <%= link_to 'Delete', admin_category_path(category), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <%= link_to "Back", root_path , class: :rootpath %> 
+      <%= link_to "Back", root_path , class: :adminuserpath %> 
     </div>
 </div>

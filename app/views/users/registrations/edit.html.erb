@@ -1,17 +1,27 @@
-<div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">  
+<div class="container-fluid w-75 shadow mt-5 rounded border p-4 bg-dark">  
   <h2 class='text-light'>Update <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
-    
-    <div class="form-outline mb-4 text-light">
-      <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-    </div>
-
-    <div class="form-outline mb-4 text-light">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="row mb-4 text-light">
+      <div class="col">
+        <div class="form-outline mt-3 text-light">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline mt-3 text-light">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="field mt-3 text-start float-end">
+          <%= f.label :image %><br />
+          <%= f.file_field :image, class: "form-control" %>
+        </div>
+      </div>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -31,7 +41,7 @@
       </div>
 
       <div class="col">
-        <div class="form-outline" >
+        <div class="form-outline mt-4" >
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
@@ -39,20 +49,28 @@
 
       <div class="col">
         <div class="form-outline" >
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.label :current_password %> <i>(current password to confirm your changes)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
       </div>
     </div>
-
-    <div class="actions mb-2 text-light">
-      <%= f.submit "Update" %>
+    <div class="col">
+      <div class="float-end">
+        <%= f.submit "Update", class: "actions mb-2 btn btn-warning" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="float-start">
+        <%= link_to "Back", :back, class: 'btn btn-warning btn-block mb-2' %>
+      </div>
     </div>
   <% end %>
-
-  <h4 class='text-light'>Do you want to cancel your account?</h4>
-
-  <p class='text-light'>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary btn-block mb-4 text-light' %></p>
-
-  <%= link_to "Back", :back, class: 'btn btn-primary btn-block mb-4 text-light' %>
+  <div class="row mt-2 text-light">
+    <div class="col">
+      <div class="float-start">
+        <h4 class='text-light'>Do you want to cancel your account?</h4>
+        <p class='text-light'>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-warning btn-block mb-4' %></p>
+      </div>
+    </div>
+  </div>
 </div>

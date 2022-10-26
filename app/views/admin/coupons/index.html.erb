@@ -25,7 +25,7 @@
               <td><%= coupon.price %></td>
               <td class ="link-warning">
                 <%= link_to 'Show', admin_coupon_path(coupon), class: :adminuserpath %>
-                <%= link_to "Edit", edit_admin_coupon_path(coupon), class: :editadminuserpath %>
+                <%= link_to "Edit", edit_admin_coupon_path(coupon), class: :adminuserpath %>
                 <%= link_to 'Delete', admin_coupon_path(coupon), method: :delete, data: {Confirm: "Are you sure?"}, class: :adminuserpath %>
               </td>
             </tr>
@@ -34,6 +34,6 @@
       </table>
       <%= paginate @coupons, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
       nav_class: "d-inline-block" %><br>
-      <%= link_to "Back", root_path , class: :rootpath %> 
+      <%= link_to "Back", root_path , class: :adminuserpath %> 
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid w-75 shadow mt-5 rounded border p-4 bg-dark" >
-<%= link_to "Back", root_path  %>
+<%= link_to "Back", root_path, class: :adminuserpath %>
   <h2 class= "text-light">Products listing</h2>
   <div class="d-flex flex-wrap justify-content-around">
     <% @products.each do |product| %>
