@@ -1,42 +1,42 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark" >
   <h2 class= "text-light">User's List</h2>
   <div class= "text-light"><hr></div>
-   <div class="table-responsive">
-      <%= form_tag admin_users_path, method: :get do %>
-        <div class="float-end input-group w-50 input-group-sm mb-4" >
-          <%= search_field_tag :search, params[:search], placeholder: "Search Here ", class:"form-control" %>
-          <%= submit_tag "search", class: "btn btn-warning"%>
-        </div>
-      <% end %>
-      <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap") %> 
-      <%= link_to('Create User', new_invitation_path, class: "btn btn-warning text-wrap")%>
-      <table class="table table-sm">
-        <thead>
-          <th class="col text-light"><%= sortable "id","ID" %></th>
-          <th class="col text-light"><%= sortable "username","User Name"  %></th>
-          <th class="col text-light"><%= sortable "email","Email"%></th>
-          <th class="col text-light">Role</th>
-          <th class="col text-light">Action</th>
-        </thead>
-        <tbody class="text-light">
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.id %></td>
-              <td><%= user.username %></td>
-              <td><%= user.email %></td>
-              <td><%= user.role %></td>
-              <td class ="link-warning">
-                <%= link_to 'Show', admin_user_path(user), class: :adminuserpath %>
-                <%= link_to "Edit", edit_admin_user_path(user), class: :adminuserpath %>
-                <%= link_to 'Delete', admin_user_delete_modal_path(user.id), remote: true, class: :adminuserpath %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
-      nav_class: "d-inline-block" %><br>
-      <%= link_to "Back", root_path , class: :adminuserpath %> 
-    </div>
+ <div class="table-responsive">
+    <%= form_tag admin_users_path, method: :get do %>
+      <div class="float-end input-group w-50 input-group-sm mb-4" >
+        <%= search_field_tag :search, params[:search], placeholder: "Search Here ", class:"form-control" %>
+        <%= submit_tag "search", class: "btn btn-warning"%>
+      </div>
+    <% end %>
+    <%= link_to(".xls Report", admin_users_path(format: :xls), class: "btn btn-warning text-wrap") %> 
+    <%= link_to('Create User', new_invitation_path, class: "btn btn-warning text-wrap")%>
+    <table class="table table-sm">
+      <thead>
+        <th class="col text-light"><%= sortable "id","ID" %></th>
+        <th class="col text-light"><%= sortable "username","User Name"  %></th>
+        <th class="col text-light"><%= sortable "email","Email"%></th>
+        <th class="col text-light">Role</th>
+        <th class="col text-light">Action</th>
+      </thead>
+      <tbody class="text-light">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td class ="link-warning">
+              <%= link_to 'Show', admin_user_path(user), class: :adminuserpath %>
+              <%= link_to "Edit", edit_admin_user_path(user), class: :adminuserpath %>
+              <%= link_to 'Delete', admin_user_delete_modal_path(user.id), remote: true, class: :adminuserpath %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+    nav_class: "d-inline-block" %><br>
+    <%= link_to "Back", root_path , class: :adminuserpath %> 
+  </div>
 </div>
 <div id='open-delete-modal'></div>
