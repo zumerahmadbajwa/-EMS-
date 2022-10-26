@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :coupon, optional: true
   has_many :order_items
   has_one_attached :image
-  enum role: %i[published draft pending]
+  enum status: %i[published draft pending]
   validates :title, :price, :description, presence: true
 
   # search product
