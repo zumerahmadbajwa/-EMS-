@@ -1,9 +1,17 @@
 <div class="container-fluid w-50 shadow mt-5 rounded border p-4 bg-dark">
-  <%= link_to "Back", admin_users_path  %>
-  <div class="text-light text-center">
-    <h3>User:<%= @user.id %></h3>
-    <p> User Name: <%= @user.username %></p>
-    <p> Email: <%= @user.email %></p>
-    <p> Created at: <%= @user.created_at %></p>
+  <div class="text-light">
+    <div class="row">
+      <div class="col-4">
+        <%= render 'admin/users/profile_pic' %>
+      </div>
+      <div class="col-8">
+        <h3>User_id: <%= @user.id %></h3>
+        <p> User Name: <%= @user.username %></p>
+        <p> Email: <%= @user.email %></p>
+        <p> Created at: <%= @user.created_at %></p>
+        <p> Updated at: <%= @user.updated_at %></p>
+        <p> Confirmed at: <%= @user.confirmed_at %></p>
+      </div>
+    </div>
   </div>
 </div>

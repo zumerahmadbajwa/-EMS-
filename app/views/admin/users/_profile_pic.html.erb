@@ -1,0 +1,5 @@
+  <% if @user.avatar.attached? %>
+    <img src="<%= (url_for(@user.avatar)) %>" style="width: 150px; height: 150px;" class="rounded-circle shadow-4" alt="username">
+  <% else %>   
+  <%= image_tag "user.png" %>  
+  <% end %>  
