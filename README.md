@@ -21,4 +21,5 @@ How the code is used?
  * Controllers(where you add your logic)
  * Models(Data representation and as well as your associations of table because models interact with database)
  * Views(works as template, you can do styling through HTML/CSS etc. We are able to to use embedded ruby in rails. In views, you will create files with extension .html.erb)
+ * In assets, there you can add images, js code and customized css code.
  
