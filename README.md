@@ -1,3 +1,4 @@
+
 # E-commerce Management System
 
 This E-commerce website project based on Ruby on Rails, by which there are two panels Admin || User. Admin was created from db command.
@@ -23,3 +24,4 @@ How the code is used?
  * Views(works as template, you can do styling through HTML/CSS etc. We are able to to use embedded ruby in rails. In views, you will create files with extension .html.erb)
  * In assets, there you can add images, js code and customized css code.
  
+ <img width="1280" alt="Screenshot 2022-10-31 at 5 44 37 PM" src="https://user-images.githubusercontent.com/105544658/199010881-dc537adc-0b00-4936-bb0d-c95ff65dbe7e.png">
