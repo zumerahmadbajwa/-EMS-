@@ -16,3 +16,9 @@ Gems I have used in this project:
   * jquery-rails(used for javascript/modals)
   * stripe(used for payment method)
   * letter_opener(used for email sending/recieving functionality)
+
+How the code is used?
+ * Controllers(where you add your logic)
+ * Models(Data representation and as well as your associations of table because models interact with database)
+ * Views(works as template, you can do styling through HTML/CSS etc. We are able to to use embedded ruby in rails. In views, you will create files with extension .html.erb)
+ 
